@@ -1,7 +1,7 @@
 package com.example.utilidades.bet_control.team;
 
-import com.example.utilidades.bet_control.competitions.Competitions;
-import com.example.utilidades.bet_control.competitions.CompetitionsResponseDTO;
+import com.example.utilidades.bet_control.league.League;
+import com.example.utilidades.bet_control.league.LeagueResponseDTO;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.Date;
@@ -15,8 +15,9 @@ public record TeamResponseDTO(Long id,
                               String stadium,
                               String coach,
                               @JsonManagedReference
-                              Set<CompetitionsResponseDTO> competitions,
-                              Date fundationDate){
+                              Set<LeagueResponseDTO> leagues,
+                              Date fundationDate
+                          ){
     public TeamResponseDTO(Team team){
         this(
                 team.getId(),
@@ -24,12 +25,12 @@ public record TeamResponseDTO(Long id,
                 team.getCoach(),
                 team.getCountry(),
                 team.getStadium(),
-                mapCompetitionsToDTO(team.getCompetitions()),
+                mapLeagueToDTO(team.getLeagues()),
                 team.getFundationDate()
         );
     }
 
-    public static TeamResponseDTO TeamResponseDTOWithNoCompetitions(Team team){
+    public static TeamResponseDTO TeamResponseDTOWithoutLeague(Team team){
         return new TeamResponseDTO(
             team.getId(),
             team.getName(),
@@ -40,12 +41,12 @@ public record TeamResponseDTO(Long id,
             team.getFundationDate()
         );
     }
-    private static Set<CompetitionsResponseDTO> mapCompetitionsToDTO(Set<Competitions> competitions) {
-        if (competitions == null) {
-            return null;
+    private static Set<LeagueResponseDTO> mapLeagueToDTO(Set<League> leagues) {
+        if (leagues == null) {
+            return new HashSet<>();
         }
-        return competitions.stream()
-                .map(CompetitionsResponseDTO::competitionsWithNoTeams).collect(Collectors.toSet());
+        return leagues.stream()
+                .map(LeagueResponseDTO::leagueWithoutTeams).collect(Collectors.toSet());
     }
 }
 

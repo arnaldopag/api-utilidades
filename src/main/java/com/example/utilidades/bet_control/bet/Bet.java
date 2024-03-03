@@ -2,6 +2,8 @@ package com.example.utilidades.bet_control.bet;
 
 import com.example.utilidades.bet_control.enums.BetStatus;
 import com.example.utilidades.bet_control.enums.BetType;
+import com.example.utilidades.bet_control.player.Player;
+import com.example.utilidades.bet_control.team.Team;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +12,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "bet")
 @Table(name = "bet")
@@ -46,6 +49,10 @@ public class Bet {
     @Enumerated(EnumType.STRING)
     @Column(name = "bet_type", nullable = false)
     private BetType betType;
+
+    private List<Team> teams = new ArrayList<>();
+
+    private List<Player> players = new ArrayList<>();
 
 
     public Bet(BetRequestDTO data) {

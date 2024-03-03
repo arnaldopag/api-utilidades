@@ -8,12 +8,9 @@ import com.example.utilidades.bet_control.team.TeamResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -28,18 +25,19 @@ public class TeamController {
 
     @PostMapping
     public ResponseEntity<?>saveTeam(@RequestBody TeamRequestDTO data){
-        if(data.competitions() != null){
-            return teamService.saveTeamCompetition(data);
+        if(data.leagues() == null){
+            String errorMessage = "Unable to save team: At least one competition must be specified.";
+            return ResponseEntity.badRequest().body(errorMessage);
         }
-        String errorMessage = "Unable to save team: At least one competition must be specified.";
-        return ResponseEntity.badRequest().body(errorMessage);
+
+        return teamService.saveTeamWithLeague(data);
     }
 
 
     @GetMapping("/getAll")
     public ResponseEntity<List<TeamResponseDTO>> getAll(){
         List<TeamResponseDTO> teamList = teamRepository.findAll().stream()
-                                                  .map(TeamResponseDTO::TeamResponseDTOWithNoCompetitions).toList();
+                                                  .map(TeamResponseDTO::TeamResponseDTOWithoutLeague).toList();
         return new ResponseEntity<>(teamList,HttpStatus.OK);
     }
 

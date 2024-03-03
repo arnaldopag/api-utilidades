@@ -6,7 +6,9 @@ public enum BetType {
     HANDCAP("Handcap","H"),
     PONTS("Points","P"),
     SCORE("Score","S"),
-    GOL("Gol","G");
+    GOL("Gol","G"),
+    ASSISTENCE("Assistence", "A"),
+    KILL("Kill","K");
     private String value;
     private String description;
 

@@ -20,10 +20,10 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column( nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Team team;
 
     @Temporal(TemporalType.DATE)
@@ -32,5 +32,18 @@ public class Player {
 
     @Column(name = "jersey_number")
     private Integer jerseyNumber;
+
+    @Column(precision = 2)
+    private Long weight;
+
+    @Column(precision = 1)
+    private Long height;
+
+    @Column
+    private String photo;
+
+    @Column
+    private  Long idApi;
+
 
 }

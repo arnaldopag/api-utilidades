@@ -1,6 +1,6 @@
 package com.example.utilidades.bet_control.team;
 
-import com.example.utilidades.bet_control.competitions.Competitions;
+import com.example.utilidades.bet_control.league.League;
 import com.example.utilidades.bet_control.player.Player;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,6 @@ import lombok.Setter;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,20 +39,25 @@ public class Team {
     @Column(name = "fundation_date")
     private Date fundationDate;
 
-    @ManyToMany(mappedBy = "teams")
-    private Set<Competitions> competitions = new HashSet<>();
-
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private List<Player> players;
+    private Set<Player> players;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "league_teams",
+            joinColumns = @JoinColumn(name = "league_id"),
+            inverseJoinColumns = @JoinColumn(name = "team_id")
+    )
+    private Set<League> leagues = new HashSet<>();
 
 
     public Team(TeamRequestDTO data) {
         this.name = data.name();
         this.coach = data.coach();
         this.country = data.country();
-        this.stadium = data.stadium();
-        this.competitions = data.competitions();
         this.fundationDate = data.fundationDate();
         this.players = data.players();
+        this.leagues = data.leagues();
     }
 }
