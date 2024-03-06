@@ -1,5 +1,6 @@
 package com.example.utilidades.bet_control.team;
 
+import com.example.utilidades.bet_control.bet.Bet;
 import com.example.utilidades.bet_control.league.League;
 import com.example.utilidades.bet_control.player.Player;
 import jakarta.persistence.*;
@@ -8,9 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
@@ -42,6 +41,14 @@ public class Team {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private Set<Player> players;
 
+    @ManyToMany
+    @JoinTable(
+            name = "bet_teams",
+            joinColumns = @JoinColumn(name = "bet_id"),
+            inverseJoinColumns = @JoinColumn(name = "team_id")
+    )
+    private Set<Bet> bets = new HashSet<>();
+
 
     @ManyToMany
     @JoinTable(
@@ -57,6 +64,7 @@ public class Team {
         this.coach = data.coach();
         this.country = data.country();
         this.fundationDate = data.fundationDate();
+        this.stadium = data.stadium();
         this.players = data.players();
         this.leagues = data.leagues();
     }

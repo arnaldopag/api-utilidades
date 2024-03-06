@@ -1,10 +1,10 @@
 package com.example.utilidades.bet_control.league;
 
+import com.example.utilidades.bet_control.seasons.Season;
 import com.example.utilidades.bet_control.team.Team;
 import com.example.utilidades.bet_control.team.TeamResponseDTO;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,9 +14,7 @@ public record LeagueResponseDTO(
         String name,
         String country,
         String logo,
-        Date startDate,
-        Date endDate,
-        Integer season,
+        Set<Season> seasons,
 
         String abbreviation,
         Long idApi,
@@ -31,9 +29,7 @@ public record LeagueResponseDTO(
                 league.getName(),
                 league.getCountry(),
                 league.getLogo(),
-                league.getStartDate(),
-                league.getEndDate(),
-                league.getSeason(),
+                league.getSeasons(),
                 league.getAbbreviation(),
                 league.getIdApi(),
                 mapTeamsToDTO(league.getTeams())
@@ -46,9 +42,7 @@ public record LeagueResponseDTO(
                 league.getName(),
                 league.getCountry(),
                 league.getLogo(),
-                league.getStartDate(),
-                league.getEndDate(),
-                league.getSeason(),
+                league.getSeasons(),
                 league.getAbbreviation(),
                 league.getIdApi(),
                 new HashSet<>()

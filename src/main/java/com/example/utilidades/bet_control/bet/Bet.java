@@ -50,8 +50,10 @@ public class Bet {
     @Column(name = "bet_type", nullable = false)
     private BetType betType;
 
+    @ManyToMany(mappedBy = "bets")
     private List<Team> teams = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "betSet")
     private List<Player> players = new ArrayList<>();
 
 
@@ -62,6 +64,8 @@ public class Bet {
         this.betTeam = data.betTeam();
         this.betDeadLine = data.betDeadLine();
         this.betType = data.betType();
+        this.teams = data.teams();
+        this.players = data.players();
     }
 
     @PrePersist

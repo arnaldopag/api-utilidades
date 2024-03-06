@@ -1,5 +1,6 @@
 package com.example.utilidades.bet_control.player;
 
+import com.example.utilidades.bet_control.bet.Bet;
 import com.example.utilidades.bet_control.team.Team;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "player")
 @Table(name = "player")
@@ -45,5 +48,12 @@ public class Player {
     @Column
     private  Long idApi;
 
+    @ManyToMany
+    @JoinTable(
+            name = "bet_player",
+            joinColumns = @JoinColumn(name = "bet_id"),
+            inverseJoinColumns = @JoinColumn(name = "player_id")
+    )
+    private Set<Bet> betSet = new HashSet<>();
 
 }
