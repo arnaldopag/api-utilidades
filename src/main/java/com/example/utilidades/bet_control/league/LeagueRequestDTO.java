@@ -12,10 +12,8 @@ public record LeagueRequestDTO(
         Date startDate,
         Date endDate,
         Integer season,
-
         String abbreviation,
         Long idApi,
-
         Set<Team> teams
 ) {
 }

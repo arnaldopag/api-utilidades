@@ -1,14 +1,11 @@
 package com.example.utilidades.bet_control.seasons;
 
-import com.example.utilidades.bet_control.league.League;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table
@@ -33,4 +30,11 @@ public class Season {
 
     @Column
     private Integer year;
+
+    public Season(SeasonRequestDTO data){
+        this.startDate = data.startDate();
+        this.endDate = data.enDate();
+        this.current = data.current();
+        this.year = data.year();
+    }
 }

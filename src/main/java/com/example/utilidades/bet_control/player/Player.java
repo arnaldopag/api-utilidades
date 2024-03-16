@@ -48,12 +48,4 @@ public class Player {
     @Column
     private  Long idApi;
 
-    @ManyToMany
-    @JoinTable(
-            name = "bet_player",
-            joinColumns = @JoinColumn(name = "bet_id"),
-            inverseJoinColumns = @JoinColumn(name = "player_id")
-    )
-    private Set<Bet> betSet = new HashSet<>();
-
 }

@@ -43,15 +43,6 @@ public class Team {
 
     @ManyToMany
     @JoinTable(
-            name = "bet_teams",
-            joinColumns = @JoinColumn(name = "bet_id"),
-            inverseJoinColumns = @JoinColumn(name = "team_id")
-    )
-    private Set<Bet> bets = new HashSet<>();
-
-
-    @ManyToMany
-    @JoinTable(
             name = "league_teams",
             joinColumns = @JoinColumn(name = "league_id"),
             inverseJoinColumns = @JoinColumn(name = "team_id")

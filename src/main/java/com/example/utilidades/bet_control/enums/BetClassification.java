@@ -1,16 +1,17 @@
 package com.example.utilidades.bet_control.enums;
 
-public enum BetStatus {
+public enum BetClassification {
 
-    WiN("Win","W"),
-    LOSS("Loss","L"),
-    PENDING("Pending","P");
+    WINNER("Winner", "W"),
+    HANDICAP("Handicap","H"),
+    OVER("Over","O"),
+    UNDER("Under", "U");
 
     private String value;
     private String description;
 
-    BetStatus(String description,String value){
-        this.description = description;
+    BetClassification(String description, String value){
+        this.description =  description;
         this.value = value;
     }
 

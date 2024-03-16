@@ -1,18 +1,18 @@
 package com.example.utilidades.bet_control.enums;
 
-public enum BetType {
+public enum Sports {
 
-    WINNER("Winner team", "W"),
-    HANDCAP("Handcap","H"),
-    PONTS("Points","P"),
-    SCORE("Score","S"),
-    GOL("Gol","G"),
-    ASSISTENCE("Assistence", "A"),
-    KILL("Kill","K");
+    FOOTBALL("Football","F"),
+    LOL("League of Legends","L"),
+    BASKETBALL("Basktball","B"),
+    CS("Counter-Strike 2","C"),
+    TENNIS("Tennis","T");
+
+
     private String value;
     private String description;
 
-    BetType(String description, String value){
+    Sports(String description, String value){
         this.description =  description;
         this.value = value;
     }
