@@ -47,7 +47,6 @@ public class BetController {
             if (!optionalBet.isPresent()) {
                 return ResponseEntity.notFound().build();
             }
-
             Bet existingBet = optionalBet.get();
             existingBet.setStatus(updatedBet.getStatus());
             betRepository.save(existingBet);

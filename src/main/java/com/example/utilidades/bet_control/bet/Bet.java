@@ -68,7 +68,12 @@ public class Bet {
     @JoinColumn(name = "player_id")
     private Player player;
 
+    @ManyToOne
+    @JoinColumn(name = "betting_house_id")
+    private BettingHouse bettingHouse;
 
+    @Column(name = "potential_return")
+    private BigDecimal potentialReturn;
 
 
     public Bet(BetRequestDTO data) {
