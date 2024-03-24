@@ -1,4 +1,4 @@
-package com.example.utilidades.bet_control.bet;
+package com.example.utilidades.bet_control.betting_house;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,8 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
-@Table
+@Table(name = "betting_house")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,6 +23,8 @@ public class BettingHouse {
     @Column(nullable = false)
     private String name;
 
+    @Column(name = "house_bank_roll",nullable = false, precision = 2)
+    private BigDecimal houseBankRoll;
 
 }
 

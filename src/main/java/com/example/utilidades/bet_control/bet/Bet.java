@@ -1,5 +1,6 @@
 package com.example.utilidades.bet_control.bet;
 
+import com.example.utilidades.bet_control.betting_house.BettingHouse;
 import com.example.utilidades.bet_control.enums.BetElement;
 import com.example.utilidades.bet_control.enums.BetStatus;
 import com.example.utilidades.bet_control.enums.BetClassification;
@@ -29,7 +30,7 @@ public class Bet {
     private Long id;
 
     @Column(name = "odd", nullable = false,precision = 2)
-    private Long odd;
+    private BigDecimal odd;
 
     @Column(name = "bet_amount", nullable = false,precision = 2)
     private BigDecimal betAmount;
@@ -39,7 +40,7 @@ public class Bet {
     private BetStatus status;
 
     @Column(name = "bet_date_time_creation",nullable = false)
-    private LocalDateTime betDateTimeCreation;
+    private LocalDateTime dateTimeCreation;
 
     @Column(name = "bet_dead_line")
     private LocalDateTime betDeadLine;
@@ -72,7 +73,7 @@ public class Bet {
     @JoinColumn(name = "betting_house_id")
     private BettingHouse bettingHouse;
 
-    @Column(name = "potential_return")
+    @Column(name = "potential_return", precision = 2)
     private BigDecimal potentialReturn;
 
 
@@ -85,7 +86,9 @@ public class Bet {
         this.team = data.team();
         this.player = data.player();
         this.sports = data.sports();
-        this.betDateTimeCreation = LocalDateTime.now();
+        this.dateTimeCreation = LocalDateTime.now();
+        this.bettingHouse = data.bettingHouse();
+        this.potentialReturn = data.betAmount().multiply(data.odd());
     }
 
 }

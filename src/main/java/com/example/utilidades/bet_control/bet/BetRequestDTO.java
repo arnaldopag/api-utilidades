@@ -1,5 +1,6 @@
 package com.example.utilidades.bet_control.bet;
 
+import com.example.utilidades.bet_control.betting_house.BettingHouse;
 import com.example.utilidades.bet_control.enums.BetElement;
 import com.example.utilidades.bet_control.enums.BetStatus;
 import com.example.utilidades.bet_control.enums.BetClassification;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record BetRequestDTO(
-        Long odd,
+        BigDecimal odd,
         BigDecimal betAmount,
         BetStatus status,
         LocalDateTime betDeadLine,
@@ -21,7 +22,8 @@ public record BetRequestDTO(
         League league,
         Team team,
         Player player,
-        Sports sports
+        Sports sports,
+        BettingHouse bettingHouse
     ) {
 
 }
