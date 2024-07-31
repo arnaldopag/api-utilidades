@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 public record BetResponseDTO(
         Long id,
-        Long odd,
+        BigDecimal odd,
         BigDecimal betAmount,
         BetStatus status,
         LocalDateTime betDateTimeCreation,
@@ -32,7 +32,7 @@ public record BetResponseDTO(
                 bet.getOdd(),
                 bet.getBetAmount(),
                 bet.getStatus(),
-                bet.getBetDateTimeCreation(),
+                bet.getDateTimeCreation(),
                 bet.getBetDeadLine(),
                 bet.getBetClassification(),
                 bet.getBetElement(),

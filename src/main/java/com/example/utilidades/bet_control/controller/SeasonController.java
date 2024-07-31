@@ -19,7 +19,6 @@ public class SeasonController {
     private SeasonRepository repository;
 
 
-
     @PostMapping("/save")
     public ResponseEntity<Season> save(@RequestBody SeasonRequestDTO data){
         Season season = new Season(data);

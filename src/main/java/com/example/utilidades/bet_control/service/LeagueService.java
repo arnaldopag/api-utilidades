@@ -22,11 +22,8 @@ public class LeagueService {
     private SeasonRepository seasonRepository;
 
 
-
     public ResponseEntity<League> saveLeague(LeagueRequestDTO data){
         League league = new League(data);
-        league = leagueRepository.save(league);
-
         List<Season> seasons = seasonRepository.findAll();
         league.getSeasons().addAll(seasons);
 
@@ -34,5 +31,4 @@ public class LeagueService {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(league);
     }
-
 }

@@ -29,7 +29,6 @@ public class TeamController {
             String errorMessage = "Unable to save team: At least one competition must be specified.";
             return ResponseEntity.badRequest().body(errorMessage);
         }
-
         return teamService.saveTeamWithLeague(data);
     }
 
