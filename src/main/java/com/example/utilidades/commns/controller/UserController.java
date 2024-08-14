@@ -14,9 +14,11 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
+
+
     @GetMapping
     public List<User> getAll(){
-        return repository.findAll();
+        return userRepository.findAll();
     }
 }

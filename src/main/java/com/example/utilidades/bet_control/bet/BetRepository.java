@@ -1,9 +1,8 @@
 package com.example.utilidades.bet_control.bet;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-import java.util.List;
-
-public interface BetRepository extends JpaRepository<Bet,Long> {
+public interface BetRepository extends JpaRepository<Bet,Long>, QuerydslPredicateExecutor<Bet> {
 
 }

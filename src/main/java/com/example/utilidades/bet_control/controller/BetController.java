@@ -49,4 +49,10 @@ public class BetController {
     public ResponseEntity<Bet> changeBetStatus(@Validated @RequestBody Bet updatedBet) {
         return betService.changeStatus(updatedBet);
     }
+
+    @GetMapping("/getAllByTeam/{teamID}")
+    public ResponseEntity<List<Bet>> getBetByTeamID(@PathVariable Long teamID){
+        List<Bet> betList = betService.getAllByTeam(teamID);
+        return ResponseEntity.ok( betList.isEmpty() ? Collections.emptyList()  :betList);
+    }
 }

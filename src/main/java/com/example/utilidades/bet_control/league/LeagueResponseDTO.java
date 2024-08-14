@@ -5,6 +5,8 @@ import com.example.utilidades.bet_control.team.Team;
 import com.example.utilidades.bet_control.team.TeamResponseDTO;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,7 +17,6 @@ public record LeagueResponseDTO(
         String country,
         String logo,
         Set<Season> seasons,
-
         String abbreviation,
         Long idApi,
         @JsonManagedReference
@@ -45,13 +46,13 @@ public record LeagueResponseDTO(
                 league.getSeasons(),
                 league.getAbbreviation(),
                 league.getIdApi(),
-                new HashSet<>()
+                Collections.emptySet()
         );
     }
 
     private static Set<TeamResponseDTO> mapTeamsToDTO(Set<Team> teams) {
         if (teams == null) {
-            return new HashSet<>();
+            return Collections.emptySet();
         }
         return teams.stream()
                 .map(TeamResponseDTO::TeamResponseDTOWithoutLeague).collect(Collectors.toSet());
