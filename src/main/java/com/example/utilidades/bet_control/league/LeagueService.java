@@ -1,8 +1,5 @@
-package com.example.utilidades.bet_control.service;
+package com.example.utilidades.bet_control.league;
 
-import com.example.utilidades.bet_control.league.League;
-import com.example.utilidades.bet_control.league.LeagueRepository;
-import com.example.utilidades.bet_control.league.LeagueRequestDTO;
 import com.example.utilidades.bet_control.seasons.Season;
 import com.example.utilidades.bet_control.seasons.SeasonRepository;
 import org.springframework.beans.factory.annotation.Autowired;

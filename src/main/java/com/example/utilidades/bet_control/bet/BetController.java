@@ -1,10 +1,5 @@
-package com.example.utilidades.bet_control.controller;
+package com.example.utilidades.bet_control.bet;
 
-import com.example.utilidades.bet_control.bet.Bet;
-import com.example.utilidades.bet_control.bet.BetRepository;
-import com.example.utilidades.bet_control.bet.BetRequestDTO;
-import com.example.utilidades.bet_control.bet.BetResponseDTO;
-import com.example.utilidades.bet_control.service.BetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController

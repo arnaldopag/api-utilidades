@@ -6,7 +6,7 @@ import com.example.utilidades.bet_control.bet.BetRepository;
 import com.example.utilidades.bet_control.bet.BetRequestDTO;
 import com.example.utilidades.bet_control.bet.BetResponseDTO;
 import com.example.utilidades.bet_control.betting_house.BettingHouse;
-import com.example.utilidades.bet_control.controller.BetController;
+import com.example.utilidades.bet_control.bet.BetController;
 import com.example.utilidades.bet_control.enums.BetClassification;
 import com.example.utilidades.bet_control.enums.BetElement;
 import com.example.utilidades.bet_control.enums.BetStatus;

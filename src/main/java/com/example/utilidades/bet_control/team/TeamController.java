@@ -1,14 +1,8 @@
-package com.example.utilidades.bet_control.controller;
+package com.example.utilidades.bet_control.team;
 
-import com.example.utilidades.bet_control.service.TeamService;
-import com.example.utilidades.bet_control.team.Team;
-import com.example.utilidades.bet_control.team.TeamRepository;
-import com.example.utilidades.bet_control.team.TeamRequestDTO;
-import com.example.utilidades.bet_control.team.TeamResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,9 +1,6 @@
-package com.example.utilidades.bet_control.service;
+package com.example.utilidades.bet_control.bet;
 
 
-import com.example.utilidades.bet_control.bet.Bet;
-import com.example.utilidades.bet_control.bet.BetRepository;
-import com.example.utilidades.bet_control.bet.QBet;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

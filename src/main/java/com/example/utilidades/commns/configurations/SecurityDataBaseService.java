@@ -28,11 +28,11 @@ public class SecurityDataBaseService implements UserDetailsService {
         if (userEntity == null) {
             throw new UsernameNotFoundException(username);
         }
-        Set<GrantedAuthority> authorities = userEntity.getRoles().stream()
+        Set<GrantedAuthority> authorities = userEntity.getAuthorities().stream()
                 .map( role -> new SimpleGrantedAuthority("ROLE_" + role))
                 .collect(Collectors.toSet());
         return new org.springframework.security.core.userdetails.User(
-                userEntity.getUserName(),
+                userEntity.getUsername(),
                 userEntity.getPassword(),
                 authorities);
     }

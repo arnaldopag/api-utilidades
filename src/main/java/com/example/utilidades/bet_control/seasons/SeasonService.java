@@ -1,7 +1,4 @@
-package com.example.utilidades.bet_control.service;
-
-import com.example.utilidades.bet_control.seasons.Season;
-import com.example.utilidades.bet_control.seasons.SeasonRepository;
+package com.example.utilidades.bet_control.seasons;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;

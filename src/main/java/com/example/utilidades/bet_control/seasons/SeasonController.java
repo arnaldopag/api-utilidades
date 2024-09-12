@@ -1,8 +1,5 @@
-package com.example.utilidades.bet_control.controller;
+package com.example.utilidades.bet_control.seasons;
 
-import com.example.utilidades.bet_control.seasons.Season;
-import com.example.utilidades.bet_control.seasons.SeasonRepository;
-import com.example.utilidades.bet_control.seasons.SeasonRequestDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

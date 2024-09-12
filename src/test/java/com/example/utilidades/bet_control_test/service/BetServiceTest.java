@@ -3,7 +3,7 @@ package com.example.utilidades.bet_control_test.service;
 import com.example.utilidades.bet_control.bet.Bet;
 import com.example.utilidades.bet_control.bet.BetRepository;
 import com.example.utilidades.bet_control.enums.BetStatus;
-import com.example.utilidades.bet_control.service.BetService;
+import com.example.utilidades.bet_control.bet.BetService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

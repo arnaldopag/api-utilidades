@@ -1,10 +1,5 @@
-package com.example.utilidades.bet_control.controller;
+package com.example.utilidades.bet_control.league;
 
-import com.example.utilidades.bet_control.league.League;
-import com.example.utilidades.bet_control.league.LeagueRepository;
-import com.example.utilidades.bet_control.league.LeagueRequestDTO;
-import com.example.utilidades.bet_control.league.LeagueResponseDTO;
-import com.example.utilidades.bet_control.service.LeagueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

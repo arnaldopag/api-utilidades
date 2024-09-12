@@ -1,10 +1,7 @@
-package com.example.utilidades.bet_control.service;
+package com.example.utilidades.bet_control.team;
 
 import com.example.utilidades.bet_control.league.League;
 import com.example.utilidades.bet_control.league.LeagueRepository;
-import com.example.utilidades.bet_control.team.Team;
-import com.example.utilidades.bet_control.team.TeamRepository;
-import com.example.utilidades.bet_control.team.TeamRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
